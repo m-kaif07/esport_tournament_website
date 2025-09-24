@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Slots</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    .slot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+    .slot-card { border: 1px solid #d1d5db; border-radius: 8px; padding: 10px; background: #f8fafc; color: #1f2937; }
+    .slot-card.empty { background: #e5e7eb; border-color: #d1d5db; color: #1f2937; }
+    .slot-card.reserved { background: #fff3cd; border-color: #f2d27a; color: #1f2937; }
+    .slot-card.confirmed { background: #d1e7dd; border-color: #a3cfbb; color: #0f172a; }
+    .slot-title { font-weight: 700; margin-bottom: 6px; color: #0f172a; }
+    .small { color: #334155; }
+    .legend { margin: 10px 0; display: flex; gap: 12px; align-items: center; color: #1f2937; }
+    .legend .chip { display:inline-block; width:14px; height:14px; border-radius:3px; margin-right:6px; }
+    .chip-empty { background:#e5e7eb; border:1px solid #d1d5db; }
+    .chip-reserved { background:#fff3cd; border:1px solid #f2d27a; }
+    .chip-confirmed { background:#d1e7dd; border:1px solid #a3cfbb; }
+  </style>
+</head>
+<body>
+  <header id="header"></header>
+  <main class="container">
+    <h1 id="title">Tournament Slots</h1>
+    <div class="legend">
+      <span><span class="chip chip-empty"></span> Empty</span>
+      <span><span class="chip chip-reserved"></span> Reserved</span>
+      <span><span class="chip chip-confirmed"></span> Confirmed</span>
+    </div>
+    <div id="grid" class="slot-grid"></div>
+    <div id="msg" class="msg"></div>
+  </main>
+  <footer id="footer"></footer>
+  <script src="/js/api.js"></script>
+  <script src="/js/header.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/slots.js"></script>
+</body>
+</html>
+
+

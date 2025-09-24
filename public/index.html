@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SkillzMatter — Home</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header id="header"></header>
+  <main class="container">
+    <section class="hero">
+      <div class="hero-text" style="text-align:center; grid-column: 1 / -1;">
+        <h1>Welcome to SkillzMatter</h1>
+        <p class="muted" style="margin-top:8px">INDIA KA NAYA eSports PLATFORM</p>
+        <p class="small" style="margin-top:4px">Because Skills Matter Most</p>
+      </div>
+    </section>
+<div class="cta-row" style="justify-content:center; margin-top: 16px;">
+      <a class="btn" href="/tournaments.html">Browse Tournaments</a>
+      <a class="btn" href="/signup.html">Join Now</a>
+    </div>
+    <section class="video-grid">
+      <a class="video-card" href="https://youtu.be/hpm5rqEERWg?si=NhhHlrxPOsp-j_Cb" target="_blank" rel="noopener" aria-label="Featured Video 1">
+        <div class="video-thumb" style="--thumb:url('https://img.youtube.com/vi/hpm5rqEERWg/hqdefault.jpg')"></div>
+        <div class="video-overlay"><span class="play">▶</span></div>
+      </a>
+      <a class="video-card" href="https://youtu.be/8iZ8XOUybIc?si=UsF2lNorz2QNuFAD" target="_blank" rel="noopener" aria-label="Featured Video 2">
+        <div class="video-thumb" style="--thumb:url('https://img.youtube.com/vi/8iZ8XOUybIc/hqdefault.jpg')"></div>
+        <div class="video-overlay"><span class="play">▶</span></div>
+      </a>
+      <a class="video-card" href="https://youtu.be/OG57xja0gxY?si=cQ7nRLXiDVY6vVw_" target="_blank" rel="noopener" aria-label="Featured Video 3">
+        <div class="video-thumb" style="--thumb:url('https://img.youtube.com/vi/OG57xja0gxY/hqdefault.jpg')"></div>
+        <div class="video-overlay"><span class="play">▶</span></div>
+      </a>
+    </section>
+
+    <!-- <div class="cta-row" style="justify-content:center; margin-top: 16px;">
+      <a class="btn" href="/tournaments.html">Browse Tournaments</a>
+      <a class="btn" href="/signup.html">Join Now</a>
+    </div> -->
+  </main>
+  <footer id="footer"></footer>
+  <script src="/js/api.js"></script>
+  <script src="/js/header.js"></script>
+  <script src="/js/index.js"></script>
+
+  <!-- <footer style="text-align:center;margin:40px 0;color:#9ca3af"><a href="privacy.html" style="color:#93c5fd">Privacy Policy</a>
+  © <span id="yr"></span> AKEsports • Email: 
+    <a href="mailto:akarenasupport@gmail.com">akarenasupport@gmail.com</a>
+    <br>
+    <a href="terms.html">Terms & Conditions</a> | 
+    <a href="privacy.html">Privacy Policy</a> | 
+    <a href="faq.html">FAQ</a> | 
+    <a href="contact.html">Contact Us</a>
+    <br>
+    <strong>Note:</strong> AKEsports organizes only skill-based eSports tournaments. 
+    This platform does not involve gambling or betting in any form.</footer> -->
+
+  <!-- Firebase (compat) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-messaging-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBQDNxx8_9DFVOsJ5c4pn9kuzNxX6AxU0k",
+      authDomain: "ak-arena.firebaseapp.com",
+      projectId: "ak-arena",
+      storageBucket: "ak-arena.firebasestorage.app",
+      messagingSenderId: "883603092694",
+      appId: "1:883603092694:web:238973cdc2057ae26b8577"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const messaging = firebase.messaging();
+
+    // register SW
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/firebase-messaging-sw.js')
+        .then(reg => console.log('SW registered:', reg.scope))
+        .catch(err => console.warn('SW register failed:', err));
+    }
+
+    // Request permission and get token (call this on user action)
+    async function requestPermissionAndSave() {
+      try {
+        const permission = await Notification.requestPermission();
+        if (permission !== 'granted') return console.warn('Permission not granted');
+        const vapidKey = "BLjD_rqopmKcujWud5s2M2cJrL6HUS156HJkbAGkflQV0wAHIIoAIf4dbbv2vpyDOQutvfMFf3-ATQBi3T9CbX8";
+        const token = await messaging.getToken({ vapidKey });
+        console.log('FCM Token:', token);
+        await fetch('/save-token-public', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({ token })
+        });
+        console.log('Token sent to server');
+      } catch (e) { console.error(e); }
+    }
+  </script>
+
+
+</body>
+</html>

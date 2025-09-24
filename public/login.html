@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ARArena — Login</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header id="header"></header>
+  <main class="container narrow">
+    <h1>Login</h1>
+    <form id="loginForm" class="form">
+      <label>Email
+        <input type="email" name="email" required/>
+      </label>
+      <label>Password
+        <input type="password" name="password" required/>
+      </label>
+      <button class="btn" type="submit">Login</button>
+      <p class="muted">No account? <a href="/signup.html">Sign up</a></p>
+      <p class="muted" style="text-align: center; margin-top: 8px;">
+        <a href="#" id="forgotPasswordLink" style="color: var(--accent); text-decoration: underline;">Forgot Password?</a>
+      </p>
+    </form>
+    <div id="loginMsg" class="msg"></div>
+  </main>
+  <footer id="footer"></footer>
+  <script src="/js/api.js"></script>
+  <script src="/js/header.js"></script>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-messaging-compat.js"></script>
+  <script type="module" src="/js/auth.js"></script>
+</body>
+</html>

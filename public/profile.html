@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SkillzMatter — My Profile</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header id="header"></header>
+  <main class="container">
+    <h1>My Profile</h1>
+    <section id="profileInfo" class="profile-info">
+      <div style="margin-bottom: 24px;">
+        <h2 id="profileUsername" style="margin:0; font-size:2rem; font-weight:600;">Username</h2>
+        <p id="profileEmail" class="muted" style="margin:4px 0 0 0; font-size:1rem;"></p>
+      </div>
+      <div id="profileMsg" class="msg"></div>
+      <div id="notificationSettings" style="margin-top: 20px; padding: 15px; background: #0c1324; border-radius: 8px;">
+        <h3 style="margin: 0 0 10px 0;">Notification Settings</h3>
+        <p id="notificationStatus" style="margin: 0 0 10px 0; font-size: 0.9rem;"></p>
+        <button class="btn small primary" id="enableNotificationsBtn" style="display: none;">Enable Notifications</button>
+        <button class="btn small secondary" id="disableNotificationsBtn" style="display: none;">Disable Notifications</button>
+        <p id="notificationHelp" style="margin: 10px 0 0 0; font-size: 0.8rem; color: #666;"></p>
+      </div>
+      <button class="btn small secondary" id="logoutBtnProfile" style="margin-top:12px;">Logout</button>
+    </section>
+    <section>
+      <h2>My Earnings</h2>
+      <div id="myEarnings"></div>
+    </section>
+    <section>
+      <h2>My Tournaments</h2>
+      <div id="myTours" class="grid"></div>
+    </section>
+  </main>
+  <footer id="footer"></footer>
+  <script src="/js/api.js"></script>
+  <script src="/js/header.js"></script>
+  <script src="/js/profile.js"></script>
+</body>
+</html>

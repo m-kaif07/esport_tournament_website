@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ARArena — Admin Panel</title>
+<link href="/css/styles.css" rel="stylesheet"/>
+</meta></head>
+<body>
+<header id="header"></header>
+<main class="container">
+<h1>Admin Panel</h1>
+    <div class="proof-box">
+  <h2>Upload Proof Images</h2>
+  <form id="proofUploadForm" enctype="multipart/form-data">
+    <label for="file-upload" class="custom-file-upload">Choose Files</label>
+    <input id="file-upload" type="file" name="proofImages" multiple accept="image/*" required>
+    <button type="submit">Upload</button>
+  </form>
+  <div id="uploadMsg"></div>
+</div>
+
+<div class="proof-box">
+  <h2>Enable User Notifications</h2>
+  <p class="small">Help users who don't have FCM tokens to enable push notifications</p>
+  <form id="notificationForm" class="form">
+    <label>User ID
+      <input type="number" id="userIdInput" placeholder="Enter user ID" required>
+    </label>
+    <button type="submit">Enable Notifications</button>
+  </form>
+  <div id="notificationMsg"></div>
+</div>
+
+<div class="proof-box">
+  <h2>Refresh FCM Token</h2>
+  <p class="small">Refresh your own FCM token if notifications aren't working</p>
+  <button id="refreshTokenBtn" class="btn">Refresh My FCM Token</button>
+  <div id="refreshMsg"></div>
+</div>
+
+
+<section class="card">
+<h2>Create Tournament</h2>
+<div class="tabs" style="margin-bottom:12px">
+  <button class="btn small" id="tab-ff" data-game="Free Fire">Free Fire</button>
+  <button class="btn small secondary" id="tab-pubg" data-game="PUBG">PUBG</button>
+  <span class="small" id="gameSelMsg" style="margin-left:8px;color:#93c5fd">Selected: Free Fire</span>
+</div>
+<form class="form" enctype="multipart/form-data" id="createTournamentForm">
+<input type="hidden" name="game" id="gameField" value="Free Fire"/>
+<label>Title
+          <input name="title" required="" type="text"/>
+</label>
+<label>Date &amp; Time
+          <input name="dateTime" required="" type="datetime-local"/>
+</label>
+<label>Map
+          <input name="map" required="" type="text"/>
+</label>
+<label>Mode
+          <select name="mode" id="modeField" required="">
+<option value="Solo">Solo</option>
+<option value="Duo">Duo</option>
+<option value="Squad">Squad</option>
+</select>
+<span class="small" id="slotsHint" style="display:block;margin-top:4px;color:#9ca3af">Slots: 48</span>
+</label>
+<label>Banner Image
+          <input accept="image/*" name="banner" type="file"/>
+</label>
+<label>Payment QR Image
+          <input accept="image/*" name="qr" type="file"/>
+</label>
+<button class="btn" type="submit">Create</button>
+<label>Entry Fee (₹): <input name="fee" placeholder="0" type="number"/></label><label>Prize Pool (₹): <input name="prizePool" placeholder="0" type="number"/></label><label>1st Prize (₹): <input name="prize1" placeholder="0" type="number"/></label><label>2nd Prize (₹): <input name="prize2" placeholder="0" type="number"/></label><label>3rd Prize (₹): <input name="prize3" placeholder="0" type="number"/></label><label>Room ID: <input name="roomId" type="text"/></label><label>Room Password: <input name="roomPassword" type="text"/></label></form>
+<div class="msg" id="createMsg"></div>
+</section>
+<section class="card">
+<h2>Manage Tournaments</h2>
+<div class="tabs" style="margin-bottom:12px">
+  <button class="btn small" id="tab-list-ff" data-game="Free Fire">Free Fire</button>
+  <button class="btn small secondary" id="tab-list-pubg" data-game="PUBG">PUBG</button>
+  <span class="small" id="listGameSelMsg" style="margin-left:8px;color:#93c5fd">Showing: Free Fire</span>
+</div>
+<div class="grid" id="adminTours"></div>
+<div class="msg" id="adminMsg"></div>
+</section>
+</main>
+<footer id="footer"></footer>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-messaging-compat.js"></script>
+<script src="/js/api.js"></script>
+<script src="/js/header.js"></script>
+<script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+<script src="/js/admin.js"></script>
+</body>
+</html>

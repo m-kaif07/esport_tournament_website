@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ARArena — Tournaments</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header id="header"></header>
+  <main class="container">
+    <h1>Tournaments</h1>
+    <section id="gameSelect" class="grid game-cards">
+      <div class="game-card" id="card-ff" aria-label="Free Fire" role="button" tabindex="0" style="--bg-url: url('/img/FREEFIRE.jpg');">
+        <div class="game-card__overlay"></div>
+        <div class="game-card__content"></div>
+      </div>
+      <div class="game-card" id="card-pubg" aria-label="PUBG" role="button" tabindex="0" style="--bg-url: url('/img/PUBG.jpg');">
+        <div class="game-card__overlay"></div>
+        <div class="game-card__content"></div>
+      </div>
+    </section>
+    <div id="selectedGameMsg" class="small hidden" style="margin-top:8px;color:#93c5fd"></div>
+    
+    <!-- Tournament Mode Filters
+    <div class="tournament-filters-wrapper">
+      <div class="tournament-filters">
+        <button class="filter-btn active" data-mode="all">ALL</button>
+        <button class="filter-btn" data-mode="solo">SOLO</button>
+        <button class="filter-btn" data-mode="duo">DUO</button>
+        <button class="filter-btn" data-mode="squad">SQUAD</button>
+      </div>
+    </div> -->
+
+    <div id="tournamentsList" class="grid">
+      <!-- Tournament cards will be dynamically inserted here -->
+    </div>
+    <div id="tourMsg" class="msg"></div>
+  <section class="grid" id="tournaments"></section>
+
+  <!-- Tournament Details Modal -->
+  <div class="modal-overlay" id="tournamentModal">
+    <div class="modal-container">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <div class="modal-scroll">
+        <div class="modal-header">
+          <h2 class="modal-title" id="modalTitle">Tournament Details</h2>
+        </div>
+        <div class="modal-content" id="modalContent">
+          <!-- Content will be dynamically inserted here -->
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+  <footer id="footer"></footer>
+<script src="/js/api.js"></script>
+<script src="/js/header.js"></script>
+<script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-messaging-compat.js"></script>
+<script src="/js/notifications.js"></script>
+<script src="/js/tournaments.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</body>
+</html>
