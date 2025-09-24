@@ -171,8 +171,8 @@ module.exports = async function init(dbPath) {
         });
 
         // Seed admin if missing
-        const adminEmail = 'admin@ararena.com';
-        const adminPass = 'admin123';
+        const adminEmail = 'skillzmatteresports@gmail.com';
+        const adminPass = 'Abuzarsk@8888555629';
         db.get('SELECT id FROM users WHERE email = ?', [adminEmail], async (err, row) => {
           if (err) return reject(err);
           if (!row) {
