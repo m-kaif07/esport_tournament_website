@@ -3,31 +3,14 @@
 **Tech Stack**: Node.js v18 + Express, SQLite (single-file), Frontend in HTML/CSS/JS (no template engines).  
 **Auth**: JWT (stored in localStorage) + bcryptjs (password hashing).
 
-## Quick Start
-1. **Extract** this zip.
-2. Open a terminal in the project folder and run:
-   ```bash
-   npm install
-   cp .env.example .env   # On Windows: copy .env.example .env
-   npm start
-   ```
-   Server will start at: http://localhost:3000
-
-> If you **forget** to set `JWT_SECRET`, the app will fall back to a safe default (`dev_secret_change_me`) so it won't crash.
-
-## Admin Auto-Seeding
-On first boot, the server ensures an admin account exists:
-- Email: `admin@ararena.com`
-- Password: `admin123`
-- Role: `admin`
 
 ## Project Structure
 ```
 /server.js
 /package.json
 /.env.example
-/db/ararena.db         # SQLite single-file DB (created if missing)
-/db/init.js            # Table creation + admin seeding (runs on server start)
+/db/ararena.db         
+/db/init.js            
 /middleware/auth.js
 /routes/auth.js
 /routes/tournaments.js
